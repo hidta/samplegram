@@ -1,10 +1,11 @@
 class PicturesController < ApplicationController
-  before_action :authenticate_user!, :set_picture, only: [:show, :edit, :update, :destroy]
+  prepend_before_action :authenticate_user!
+  before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = Picture.limit(15).order("updated_at desc")
   end
 
   # GET /pictures/1
@@ -14,13 +15,21 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
+    if params[:back]
+      @picture = Picture.new(picture_params)
+    else
+      @picture = Picture.new
+    end
   end
 
   # GET /pictures/1/edit
   def edit
   end
 
+  def confirm
+    @picture = Picture.new(picture_params)
+    reder :'new'if @picture.invalid?
+  end
   # POST /pictures
   # POST /pictures.json
   def create
@@ -28,7 +37,7 @@ class PicturesController < ApplicationController
     @picture.user_id = current_user.id
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -69,6 +78,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:title, :comment)
+      params.require(:picture).permit(:title, :comment, :photos_url, :photos_url_cache)
     end
 end

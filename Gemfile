@@ -51,6 +51,7 @@ group :development do
   gem 'better_errors'
 end
 
+gem 'cancan'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
 gem 'devise'

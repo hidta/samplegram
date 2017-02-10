@@ -1,0 +1,19 @@
+<h1>confirm</h1>
+
+<%= form_for(@picture) do |p| %>
+  <%= p.hidden_field :title %>
+  <%= p.hidden_field :comment %>
+  <P>
+    <%= @picture.title %>
+    <%= @picture.comment%>
+    <%= image_tag(@picture.photos_url)%>
+  </P>
+  <%= p.submit "投稿" %>
+<% end %>
+
+<% form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
+  <%= p.hidden_field :title %>
+  <%= p.hidden_field :comment %>
+  <%= image_tag(p.hidden_field :photos_url) %>
+  <%= p.submit "投稿", name: 'back' %>
+<% end %>

@@ -1,6 +1,16 @@
-<p id="notice"><%= notice %></p>
+<section class="index container">
+  <div class="row">
+    <div class="col-md-4 col-offset-4">
+      <h1 class="text-center"style="font-family:Billabong">Samplegram's pictures</h1>
+      <h3><%= notice %></h3>
+    </div>
+  </div>
+  <div class="row">
 
-<h1>Listing Pictures</h1>
+  </div>
+</section>
+
+<%= link_to 'New Picture', new_picture_path %>
 
 <table>
   <thead>
@@ -13,19 +23,18 @@
   </thead>
 
   <tbody>
-    <% @pictures.each do |picture| %>
+    <% @pictures.each do |p| %>
       <tr>
-        <td><%= picture.title %></td>
-        <td><%= picture.comment %></td>
-        <td><%= picture.user_id %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= p.title %></td>
+        <td><%= p.comment %></td>
+        <td><%= profile_img(p.user) %></td>
+        <td><%= image_tag(p.photos_url) %></td>
+
+        <td><%= link_to 'Edit', edit_picture_path(p), class: "btn btn-default" %></td>
+        <td><%= link_to 'Delete', p, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>
