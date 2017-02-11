@@ -1,29 +1,37 @@
-<%= form_for(@picture, url: choose_new_edit) do |f| %>
-  <% if @picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+<section class="postingnew container">
+  <div class="row">
+    <div class="text-center col-sm-4 col-sm-offset-4">
+      <%= form_for(@picture, url: choose_new_edit) do |f| %>
+        <% if @picture.errors.any? %>
+        <div id="errors_explanation">
+          <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+          <ul>
+            <% @picture.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
 
-      <ul>
-      <% @picture.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <div class="field form-inline">
+        <%= f.label :title, class: "sr-only" %>
+        <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+      </div>
+      <div class="field form-inline">
+        <%= f.label :comment, class: "sr-only" %>
+        <%= f.text_field :title, placeholder: "コメント", class: "form-control" %>
+      </div>
+      <div class="field form-inline">
+        <%= f.file_field :photos_url %>
+        <%= f.hidden_field :photos_url_cache %>
+        </div>
       <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="field">
-    <%= f.file_field :photos_url %>
-    <%= f.hidden_field :photos_url_cache %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Posting" %>
-  </div>
-<% end %>
+    <div class="row">
+      <div class="text-center col-sm-4 col-sm-offset-4">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+</section>

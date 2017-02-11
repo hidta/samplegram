@@ -5,17 +5,27 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-  <% if user_signed_in? %>
-    <li><%= link_to "マイページ", edit_user_registration_path %></li>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to "ログイン", new_user_session_path %></li>
-    <li><%= link_to "サインアップ", new_user_registration_path %></li>
-  <% end %>
-
 </head>
+
 <body>
+  <header id="header">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="cantainer">
+    <div class="navber-header">
+      <%= link_to "Home", pictures_path, class: "btn home" %>
+      <% if user_signed_in? %>
+        <%= link_to "マイページ", edit_user_registration_path, class: "btn mypage" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn logout" %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn login" %>
+        <%= link_to "サインアップ", new_user_registration_path, class: "btn signup" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+</header>
+
+
 
 <%= yield %>
 
