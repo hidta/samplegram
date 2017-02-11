@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
-    reder :'new'if @picture.invalid?
+    render :'new'if @picture.invalid?
   end
   # POST /pictures
   # POST /pictures.json
@@ -40,7 +40,7 @@ class PicturesController < ApplicationController
         format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
-        format.html { render :new }
+        format.html { render :new, notice: "投稿できませんでした" }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
@@ -49,14 +49,10 @@ class PicturesController < ApplicationController
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
   def update
-    respond_to do |format|
-      if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
-        format.json { render :show, status: :ok, location: @picture }
-      else
-        format.html { render :edit }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    if @picture.update(picture_params)
+      redirect_to @picture, notice: 'Picture was successfully updated.'
+    else
+      render 'edit'
     end
   end
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   resources :pictures do
     collection do
-      post 'confirm'
+    post :confirm
     end
   end
 
