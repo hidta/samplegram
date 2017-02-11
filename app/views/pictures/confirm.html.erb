@@ -3,6 +3,7 @@
 <%= form_for(@picture) do |p| %>
   <%= p.hidden_field :title %>
   <%= p.hidden_field :comment %>
+  <%= p.hidden_field :photos_url_cache %>
   <P>
     <%= @picture.title %>
     <%= @picture.comment%>
