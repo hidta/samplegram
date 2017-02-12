@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="newpic text-center col-sm-4 col-sm-offset-4 ">
-      <%= link_to "Let's Post New Picture!", new_picture_path, class: "new-picture btn btn-link" %>
+      <%= link_to "Let's Post New Picture!", new_picture_path, class: "new-picture btn btn-default" %>
     </div>
   </div><br />
     <ul class="postings">
@@ -24,20 +24,20 @@
           </div>
         </div>
         <div class="col-sm-4 col-sm-offset-2">
-          <div class="ul userscolumn">
-            <div class="li ptitle">
+          <ul class="ul userscolumn">
+            <li class="li ptitle">
               <%= p.title %>
-            </div>
-            <div class="li pimg">
+            </li>
+            <li class="li pimg">
               <%= image_tag(p.photos_url) %>
-            </div>
-            <div class="li pcomment">
+            </li>
+            <li class="li pcomment">
               <%= p.comment %>
-            </div>
-            <div class="li buttoms">
+            </li>
+            <li class="li buttoms">
               <%= link_to 'Edit', edit_picture_path(p), class: "btn btn-default" %>
               <%= link_to 'Delete', p, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
+            </li>
           </div>
         </div>
         <% end %>

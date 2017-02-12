@@ -6,7 +6,7 @@ module ApplicationHelper
     else
       img_url = 'no_image.png'
     end
-    image_tag(img_url, class: "img-tunmbnail img-circle", alt: user.name)
+    image_tag(img_url, class: "user-img img-tunmbnail img-circle", alt: user.name)
   end
 
 end

@@ -1,20 +1,28 @@
-<h1>confirm</h1>
+<section class="container" id="confirm">
+  <div class="row">
+    <h1 class="confirm text-center col-sm-4 col-sm-offset-4">
+      <span id="postingconfirm" style="font-family:Billabong">Comfirm Posting</span>
+    </h1>
 
-<%= form_for(@picture) do |p| %>
-  <%= p.hidden_field :title %>
-  <%= p.hidden_field :comment %>
-  <%= p.hidden_field :photos_url_cache %>
-  <P>
-    <%= @picture.title %>
-    <%= @picture.comment%>
-    <%= image_tag(@picture.photos_url)%>
-  </P>
-  <%= p.submit "投稿" %>
-<% end %>
+    <div class="postingcomfirm col-sm-4 col-sm-offset-4">
+    <%= form_for(@picture) do |p| %>
+      <%= p.hidden_field :title %>
+      <%= p.hidden_field :comment %>
+      <%= p.hidden_field :photos_url_cache %>
+        <h3><%= @picture.title %></h3><br />
+        <%= image_tag(@picture.photos_url)%><br />
+        <%= @picture.comment%><br />
+        <%= p.submit "Posting!", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
-<% form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
-  <%= p.hidden_field :title %>
-  <%= p.hidden_field :comment %>
-  <%= image_tag(p.hidden_field :photos_url) %>
-  <%= p.submit "Back", name: 'back' %>
-<% end %>
+    <% form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
+      <%= p.hidden_field :title %>
+      <%= p.hidden_field :comment %>
+      <%= image_tag(p.hidden_field :photos_url) %>
+      <%= p.submit "Back", name: 'back' %>
+    <% end %>
+
+
+  </div>
+</section>
