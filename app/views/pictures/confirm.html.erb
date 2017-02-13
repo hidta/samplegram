@@ -3,18 +3,22 @@
     <h1 class="confirm text-center col-sm-4 col-sm-offset-4">
       <span id="postingconfirm" style="font-family:Billabong">Comfirm Posting</span>
     </h1>
+  </div>
 
+  <div class="row">
     <div class="postingcomfirm col-sm-4 col-sm-offset-4">
-    <%= form_for(@picture) do |p| %>
-      <%= p.hidden_field :title %>
-      <%= p.hidden_field :comment %>
-      <%= p.hidden_field :photos_url_cache %>
-        <h3><%= @picture.title %></h3><br />
-        <%= image_tag(@picture.photos_url)%><br />
+      <%= form_for(@picture) do |p| %>
+        <%= p.hidden_field :title %>
+        <%= p.hidden_field :comment %>
+        <%= p.hidden_field :photos_url_cache %>
+        <h3 class="text-center"><%= @picture.title %></h3><br />
+        <div class="compic align-center">
+        <%= image_tag(@picture.photos_url, id: "confimimg")%><br />
+        </div><br />
         <%= @picture.comment%><br />
         <%= p.submit "Posting!", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <% form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
       <%= p.hidden_field :title %>

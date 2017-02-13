@@ -10,38 +10,31 @@
       <%= link_to "Let's Post New Picture!", new_picture_path, class: "new-picture btn btn-default" %>
     </div>
   </div><br />
-    <ul class="postings">
     <% @pictures.each do |p| %>
-      <li class="row each-post">
-        <div class="col-sm-10 col-sm-offset-1">
-          <div class="row">
-            <div class="col-sm-1 col-sm-offset-1">
+      <div class=" each-posting">
+        <div class="col-sm-3 col-md-moffset-1">
+          <div class="lists">
+            <div class="username usertitle">
               <%= profile_img(p.user) %>
+              <%= p.user.name %><br />
+              <div class="ptitle">
+                <%= p.title %>
+              </div>
             </div>
-            <div class="col-sm-2 col-offset-2">
-              <%= p.user.name %>
+            <div class="pimg">
+              <%= image_tag(p.photos_url, class: "tpimg") %>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-4 col-sm-offset-2">
-          <ul class="ul userscolumn">
-            <li class="li ptitle">
-              <%= p.title %>
-            </li>
-            <li class="li pimg">
-              <%= image_tag(p.photos_url) %>
-            </li>
-            <li class="li pcomment">
+            <div class="pcomment">
               <%= p.comment %>
-            </li>
-            <li class="li buttoms">
+            </div>
+            <div class="li buttoms">
               <%= link_to 'Edit', edit_picture_path(p), class: "btn btn-default" %>
               <%= link_to 'Delete', p, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-            </li>
+              <br />
+            </div>
           </div>
         </div>
+      </div>
         <% end %>
 
-      </li>
-    </ul>
 </section>
