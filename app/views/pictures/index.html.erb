@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="pimg">
-              <%= image_tag(p.photos_url, class: "tpimg") %>
+              <%= link_to image_tag(p.photos_url, class: "tpimg"), picture_path(p), class: "anker" %>
             </div>
             <div class="pcomment">
               <%= p.comment %>

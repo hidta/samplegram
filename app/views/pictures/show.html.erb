@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @picture.title %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @picture.comment %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @picture.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<section class="showpage container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h3 class="bg-success text-center"><%= notice %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="lists">
+        <div class="username usertitle">
+          <%= profile_img(@picture.user) %>
+          <%= @picture.user.name %><br />
+          <div class="ptitle">
+            <%= @picture.title %>
+          </div>
+        </div>
+        <div class="pimg">
+          <%= image_tag(@picture.photos_url, class: "showimg") %>
+        </div>
+        <div class="pcomment">
+          <%= @picture.comment %>
+        </div><br />
+        <div class="li buttoms">
+          <%= link_to 'Edit', edit_picture_path(@picture), class: "btn btn-default" %>
+          <%= link_to 'Delete', @picture, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+</section>
