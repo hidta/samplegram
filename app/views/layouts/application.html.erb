@@ -8,26 +8,31 @@
 </head>
 
 <body>
-  <header id="header">
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="cantainer">
-    <div class="navber-header">
-      <%= link_to "Home", pictures_path, class: "btn home" %>
-      <% if user_signed_in? %>
-        <%= link_to "マイページ", edit_user_registration_path, class: "btn mypage" %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn logout" %>
-      <% else %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn login" %>
-        <%= link_to "サインアップ", new_user_registration_path, class: "btn signup" %>
-      <% end %>
+<header id="header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="cantainer">
+      <div class="navber-header">
+        <%= link_to "Samplegram", pictures_path, class: "navbar-brand home", style:"font-family:Billabong" %>
+        <div class="currentuser navbar-right">
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", edit_user_registration_path, class: "navbar-brand mypage" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-brand logout" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "navbar-brand login" %>
+          <%= link_to "サインアップ", new_user_registration_path, class: "navbar-brand signup" %>
+        <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </header>
-
-
 
 <%= yield %>
 
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <footer>
+    <p id="footer">@ 2017 Copyright Syareotu Corp.</p>
+  </footer>
+</nav>
 </body>
 </html>

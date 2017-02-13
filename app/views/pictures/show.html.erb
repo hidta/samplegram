@@ -15,12 +15,13 @@
           </div>
         </div>
         <div class="pimg">
-          <%= image_tag(@picture.photos_url, class: "showimg") %>
+          <%= image_tag(@picture.photos_url, class: "showimg center-block") %>
         </div>
         <div class="pcomment">
           <%= @picture.comment %>
         </div><br />
-        <div class="li buttoms">
+        <div class="buttomc center-block">
+          <%= link_to 'Index', pictures_path, class: "btn btn-default" %>
           <%= link_to 'Edit', edit_picture_path(@picture), class: "btn btn-default" %>
           <%= link_to 'Delete', @picture, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>

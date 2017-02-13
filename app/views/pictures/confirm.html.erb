@@ -12,20 +12,22 @@
         <%= p.hidden_field :comment %>
         <%= p.hidden_field :photos_url_cache %>
         <h3 class="text-center"><%= @picture.title %></h3><br />
-        <div class="compic align-center">
-        <%= image_tag(@picture.photos_url, id: "confimimg")%><br />
+        <div class="compic">
+        <%= image_tag(@picture.photos_url, class: "center-block")%><br />
         </div><br />
         <%= @picture.comment%><br />
-        <%= p.submit "Posting!", class: "btn btn-primary" %>
+        <div class="postingconfirmbutton">
+          <%= p.submit "Posting!", class: "btn btn-primary center-block" %>
+        </div>
+      <% end %>
+      <br />
+      <%= form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
+        <% p.hidden_field :title %>
+        <% p.hidden_field :comment %>
+        <% image_tag(p.hidden_field :photos_url) %>
+        <%= p.submit "Back", name: 'back', class: "btn btn-default center-block" %>
       <% end %>
     </div>
-
-    <% form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
-      <%= p.hidden_field :title %>
-      <%= p.hidden_field :comment %>
-      <%= image_tag(p.hidden_field :photos_url) %>
-      <%= p.submit "Back", name: 'back' %>
-    <% end %>
 
 
   </div>

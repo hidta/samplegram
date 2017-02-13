@@ -1,15 +1,16 @@
 <section div="container">
   <div class="row">
     <div class="text-center col-sm-4 col-sm-offset-4">
-      <span id="editingpic" style="font-family:Billabong">Edit picture</span>
+      <h1 id="editingpic" style="font-family:Billabong">Edit picture</h1>
     </div>
   </div>
-  <%= render 'form'%>
+
+  <%= render 'form'%><br />
+
   <div class="row">
     <div class="text-center col-sm-4 col-sm-offset-4">
       <%= link_to 'Back to Index', pictures_path, class: "btn btn-default" %>
+      <%= link_to 'Show', @picture, class: "btn btn-default" %>
     </div>
   </div>
 </section>
-
-<%= link_to 'Show', @picture %> 

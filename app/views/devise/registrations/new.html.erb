@@ -8,17 +8,17 @@
       <div class="field form-inline">
         <%= f.label :email, class: "sr-only" %>
         <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control", autofocus: true %>
-      </div>
+      </div><br />
       <div class="field form-inline">
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> 文字以上のパスワードを設定してください)</em>
-        <% end %><br />
+        <% end %>
         <%= f.label :password, class: "sr-only" %>
         <%= f.password_field :password, placeholder: "パスワード", class: "form-control", autocomplete: "off" %>
-      </div>
+      </div><br />
       <div class="field form-inline">
         <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-control",autocomplete: "off" %>
-      </div>
+      </div><br />
       <div class="actions form-inline">
         <%= f.submit "登録する", class: 'btn btn-primary' %>
       </div>

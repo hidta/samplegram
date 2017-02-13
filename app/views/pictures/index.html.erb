@@ -11,30 +11,28 @@
     </div>
   </div><br />
     <% @pictures.each do |p| %>
-      <div class=" each-posting">
-        <div class="col-sm-3 col-md-moffset-1">
-          <div class="lists">
-            <div class="username usertitle">
-              <%= profile_img(p.user) %>
-              <%= p.user.name %><br />
-              <div class="ptitle">
-                <%= p.title %>
-              </div>
-            </div>
-            <div class="pimg">
-              <%= link_to image_tag(p.photos_url, class: "tpimg"), picture_path(p), class: "anker" %>
-            </div>
-            <div class="pcomment">
-              <%= p.comment %>
-            </div>
-            <div class="li buttoms">
-              <%= link_to 'Edit', edit_picture_path(p), class: "btn btn-default" %>
-              <%= link_to 'Delete', p, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-              <br />
-            </div>
+    <div class="each-posting col-sm-3 col-md-moffset-1">
+      <div class="lists">
+        <div class="username usertitle">
+          <%= profile_img(p.user) %>
+          <%= p.user.name %><br />
+          <div class="ptitle">
+            <%= p.title %>
           </div>
         </div>
+        <div class="pimg">
+          <%= link_to image_tag(p.photos_url, class: "tpimg center-block"), picture_path(p), class: "anker" %>
+        </div>
+        <div class="pcomment">
+          <%= p.comment %>
+        </div>
+        <div class="li buttoms">
+          <%= link_to 'Edit', edit_picture_path(p), class: "btn btn-default" %>
+          <%= link_to 'Delete', p, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br />
+        </div>
       </div>
-        <% end %>
+    </div>
+    <% end %>
 
 </section>

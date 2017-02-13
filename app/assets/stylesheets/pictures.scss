@@ -1,14 +1,50 @@
+/*header and footer*/
 #header {
   height: 50px;
 }
+.home {
+  font-size: 30px
+}
+.currentuser {
+  margin: auto;
+}
+footer {
+  text-align: center;
+}
 
+#footer {
+  margin: auto;
+  padding: 10px;
+}
+
+/*index*/
+h1 {
+  font-size: 40px
+}
+.lists {
+  padding: 3px;
+}
+.username {
+  text-align: center;
+}
+.ptitle {
+  text-align: center;
+  font-size: 20px;
+  padding: 3px
+}
 .user-img {
   width: 30px;
   height: 30px;
+  margin: auto;
+}
+.pimg {
+  position: relative;
 }
 .tpimg {
   width: 180px;
   height: 180px;
+  position: relative;
+  border: solid 1px;
 }
 #comfimimg {
   padding: auto;

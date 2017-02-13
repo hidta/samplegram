@@ -16,15 +16,15 @@
         <div class="field form-inline">
           <%= f.label :title, class: "sr-only" %>
           <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
-        </div>
+        </div><br />
         <div class="field form-inline">
           <%= f.label :comment, class: "sr-only" %>
           <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
-        </div>
+        </div><br />
         <div class="field form-inline">
           <%= f.hidden_field :photos_url_cache %>
-          <%= f.file_field :photos_url, class: " form-control fileupbtn" %>
-        </div>
+          <%= f.file_field :photos_url, class: "center-block fileupbtn" %>
+        </div><br />
         <div class="actions form-inline">
           <%= f.submit "Posting", class: 'btn btn-primary' %>
         </div>

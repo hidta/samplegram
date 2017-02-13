@@ -1,6 +1,6 @@
 <section class="edituser container">
   <div class="row">
-    <h1 class="col-sm-4 col-sm-offset-4 text-center" style="font-family:Billabong">Edit User<%= resource_name.to_s.humanize %></h1>
+    <h1 class="col-sm-4 col-sm-offset-4 text-center" style="font-family:Billabong">Edit <%= resource_name.to_s.humanize %></h1>
   </div>
 
   <div class="row">
@@ -10,15 +10,15 @@
         <div class="field form-inline">
           <%= f.label :name, class: "sr-only" %>
           <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
-        </div>
+        </div><br />
         <div class="field form-inline">
           <%= f.label :email, class: "sr-only" %>
           <%= f.email_field :email, class: "form-control", autofocus: true %>
-        </div>
+        </div><br />
         <div class="field">
-          <%= profile_img(@user) if profile_img(@user) %>
+          <%= profile_img(@user) if profile_img(@user) %><br />
           <%= f.hidden_field :icon_cache %>
-          <%= f.file_field :icon %>
+          <%= f.file_field :icon, class: "center-block" %>
         </div><br />
 
         <div class="settingpass">
@@ -30,7 +30,7 @@
 
             <div class="field">
               <%= f.label :password, class: "sr-only" %>
-              <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "新しいパスワードを入力してください" %>
+              <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "新しいパスワードを入力してください" %><br />
               <% if @minimum_password_length %>
                 <em><%= @minimum_password_length %>文字以上を設定してください</em>
               <% end %>
@@ -38,12 +38,12 @@
             <div class="field">
               <%= f.label :password_confirmation, class: "sr-only" %>
               <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "新しいパスワードをもう一度入力してください" %>
-            </div>
+            </div><br />
 
             <div class="field">
               <%= f.label :current_password, class: "sr-only" %>
               <%= f.password_field :current_password, class: "form-control", autocomplete: "off", placeholder: "現在のパスワードを入力してください" %>
-            </div>
+            </div><br />
           <% end %>
 
           <div class="actions">
@@ -54,7 +54,7 @@
       <h3>Cancel my account</h3>
       <%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "remove-account btn btn-denger " %></br>
 
-      <%= link_to "Back to Index", :back, class: "btn btn-default"%>
+      <%= link_to "Index", :back, class: "btn btn-default"%>
 
     </div>
   </div>
