@@ -15,11 +15,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    if params[:back]
-      @picture = Picture.new(picture_params)
-    else
       @picture = Picture.new
-    end
   end
 
   # GET /pictures/1/edit
@@ -28,7 +24,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
-    render :'new'if @picture.invalid?
+    render 'new' if @picture.invalid?
   end
   # POST /pictures
   # POST /pictures.json

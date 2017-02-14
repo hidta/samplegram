@@ -51,6 +51,8 @@ group :development do
   gem 'better_errors'
 end
 
+gem 'rails-i18n'
+gem 'rails_12factor'
 gem 'rails_admin'
 gem 'cancan'
 gem 'twitter-bootstrap-rails'

@@ -21,6 +21,7 @@
         </div>
       <% end %>
       <br />
+
       <%= form_for(@picture, url:new_picture_path, method: 'get') do |p| %>
         <% p.hidden_field :title %>
         <% p.hidden_field :comment %>
