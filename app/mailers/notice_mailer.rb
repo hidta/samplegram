@@ -9,6 +9,5 @@ class NoticeMailer < ApplicationMailer
     @greeting = "Hi"
 
     mail to: "tahatwe6@gamil.com"
-         subject: '写真が投稿されました'
   end
 end
