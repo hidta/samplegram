@@ -33,7 +33,7 @@ class PicturesController < ApplicationController
     @picture.user_id = current_user.id
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
+        format.html { redirect_to pictures_path }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new, notice: "投稿できませんでした" }
@@ -46,7 +46,7 @@ class PicturesController < ApplicationController
   # PATCH/PUT /pictures/1.json
   def update
     if @picture.update(picture_params)
-      redirect_to @picture, notice: 'Picture was successfully updated.'
+      redirect_to @picture, notice: '写真を投稿しました！'
     else
       render 'edit'
     end
@@ -57,7 +57,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to pictures_url, notice: '写真を削除しました！' }
       format.json { head :no_content }
     end
   end
